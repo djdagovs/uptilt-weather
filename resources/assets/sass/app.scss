@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+}
+
+header, footer {
+  z-index: 2;
+}
+
+body {
+  min-height: 100%;
+}
+
+#app {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.full-height {
+  min-height: 100%;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.weather-panel--wrapper,
+.radar-panel--wrapper {
+  min-height: 500px;
+  @media screen and (max-width: 992px) {
+    width: 100% !important;
+    min-height: 50vh !important;
+  }
+}
+
+.weather-panel--wrapper {
+  background-color: white;
+  padding: 16px;
+  z-index: 1;
+  min-width: 400px;
+  width: 30%;
+  @media screen and (min-width: 993px) {
+    max-width: 450px;
+    box-shadow: 3px 0 5px rgba(0,0,0,.54);
+  }
+}
+
+.radar-panel--wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.main-content {
+  display: flex;
+  flex: 1 0 auto;
+  min-height: calc(100vh - 134px);
+  flex-direction: row;
+  @media screen and (max-width: 992px) {
+    flex-direction: column;
+  }
+}
+
+/*
+ * Weather Styling Here
+ */
+
+.current-temperature--wrapper {
+  width: 100%;
+  height: 100px;
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  .current-temperature {
+    font-size: 78px;
+    border-right: 3px solid black;
+    padding-right: 20px;
+    margin-right: 20px;
+  }
+}
+
+.current-summary {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0.5em auto;
+  margin-bottom: 0;
+}
+
+.current-wind {
+  text-align: center;
+  margin: 1em auto;
+  margin-top: 0;
+}
+
+.daily-forecast--wrapper {
+  margin-top: 10px;
+}
+
+.daily-forecast {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 5px;
+  * {
+    flex-grow: 1;
+  }
+  &:first-child {
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+  }
+}
+
+.daily-forecast__day {
+  text-transform: uppercase;
+  width: 50px;
+  @media screen and (max-width: 1200px) {
+    font-size: 20px;
+  }
+}
+
+.daily-forecast__skycon--wrapper {
+  width: 50px;
+  @media screen and (max-width: 1200px) {
+    font-size: 20px;
+  }
+}
+
+.daily-forecast__temperature {
+  font-size: 24px;
+  width: 50px;
+  @media screen and (max-width: 1200px) {
+    font-size: 20px;
+  }
+}
+
+.daily-forecast__temperature--low {
+  @extend .daily-forecast__temperature;
+  color: blue;
+}
+
+.daily-forecast__temperature--high {
+  @extend .daily-forecast__temperature;
+  color: red;
+}
